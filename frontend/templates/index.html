@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Text Summarizer | Galgotias University</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-wrapper">
+        <div class="particles"></div>
+        <div class="gradient-overlay"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h1>Automated Text <span>Summarizer</span></h1>
+            </div>
+            <div class="university">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Galgotias University</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="input-section glass-card">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="paste-tab">
+                        <i class="fas fa-paste"></i> Paste Text
+                    </button>
+                    <button class="tab-btn" data-tab="upload-tab">
+                        <i class="fas fa-file-import"></i> Upload File
+                    </button>
+                </div>
+                
+                <div id="paste-tab" class="tab-content active">
+                    <textarea id="input-text" placeholder="Enter or paste your text here..."></textarea>
+                </div>
+                
+                <div id="upload-tab" class="tab-content">
+                    <div class="file-upload-wrapper">
+                        <label for="file-upload" class="custom-file-upload">
+                            <i class="fas fa-folder-open"></i> Select Text File
+                        </label>
+                        <input type="file" id="file-upload" accept=".txt">
+                        <div id="file-content" class="file-preview"></div>
+                    </div>
+                </div>
+                
+                <button id="summarize-btn" class="action-btn summarize-btn">
+                    <i class="fas fa-magic"></i> Generate Summary
+                </button>
+            </div>
+
+            <div class="output-section glass-card">
+                <div class="section-header">
+                    <h2><i class="fas fa-file-alt"></i> Summary</h2>
+                    <div class="actions">
+                        <button id="download-btn" class="action-btn download-btn" disabled>
+                            <i class="fas fa-file-download"></i> Download
+                        </button>
+                    </div>
+                </div>
+                <div id="summary-output" class="summary-content"></div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="developers-section">
+                <h3><i class="fas fa-users"></i> Project Developers</h3>
+                <div class="developers-grid">
+                    <div class="developer-card">
+                        <div class="dev-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="dev-details">
+                            <h4>Gaurav Dwivedi</h4>
+                            <p class="adm-no">21SCSE1010115</p>
+                        </div>
+                    </div>
+                    <div class="developer-card">
+                        <div class="dev-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="dev-details">
+                            <h4>Ayush Kumar Yadav</h4>
+                            <p class="adm-no">21SCSE1010940</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-meta">
+                    <p><i class="fas fa-laptop-code"></i> Final Year Project | Computer Science & Engineering</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../static/js/script.js"></script>
+</body>
+</html>
