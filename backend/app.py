@@ -3,7 +3,11 @@ from summarizer import summarize_text
 import os
 import tempfile
 
-app = Flask(__name__, template_folder='../frontend/templates', static_folder='../frontend/static')
+app = Flask(
+    __name__,
+    template_folder=os.path.join(os.path.dirname(__file__), '../frontend/templates'),
+    static_folder=os.path.join(os.path.dirname(__file__), '../frontend/static')
+)
 
 @app.route('/')
 def home():
@@ -21,22 +25,22 @@ def summarize():
             return jsonify({'error': 'Only .txt files are allowed'})
     else:
         data = request.get_json()
-        text = data['text']
-    
+        text = data.get('text', '')
+
     summary = summarize_text(text)
     return jsonify({'summary': summary})
 
 @app.route('/download', methods=['POST'])
 def download():
     data = request.get_json()
-    summary = data['summary']
-    
-    # Create a temporary file
+    summary = data.get('summary', '')
+
     with tempfile.NamedTemporaryFile(mode='w+', suffix='.txt', delete=False) as temp_file:
         temp_file.write(summary)
         temp_path = temp_file.name
-    
+
     return send_file(temp_path, as_attachment=True, download_name='summary.txt')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
