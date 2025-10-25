@@ -36,15 +36,15 @@ def summarize_text(text):
 
         # Determine summary length
         if total_sentences <= 5:
-            num_sentences = 1
-        elif total_sentences <= 10:
             num_sentences = 2
+        elif total_sentences <= 10:
+            num_sentences = 5
         elif total_sentences <= 30:
-            num_sentences = max(3, int(total_sentences * 0.15))
+            num_sentences = max(10, int(total_sentences * 0.15))
         elif total_sentences <= 100:
-            num_sentences = max(5, int(total_sentences * 0.2))
+            num_sentences = max(40, int(total_sentences * 0.2))
         else:
-            num_sentences = max(10, int(total_sentences * 0.25))
+            num_sentences = max(65, int(total_sentences * 0.25))
         num_sentences = min(num_sentences, 25)
 
         # TF-IDF scoring
